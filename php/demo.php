@@ -22,9 +22,9 @@ $value2 = $_POST['text'];
 
 $sql = "INSERT INTO demo (email, text) VALUES ('$value', '$value2')";
 
-//if (!$mysqli->query($sql)) {
-//	die('Error:' . $mysqli->connect_error)
-// }
+if (!$mysqli->query($sql)) {
+	die('Error:' . $mysqli->connect_error)
+ }
 
 mysqli_close($mysqli);
 ?>
