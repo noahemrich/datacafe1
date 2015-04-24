@@ -91,11 +91,11 @@
         url: "demo.php",
         type: 'POST',
         data: $("#myform").serialize(),
-        success: function(){  
+        success: $function(){  
           messageEl.innerHTML = 'Thanks for your payment! Go get your cookie.';
           classie.addClass( messageEl, 'show' );
           },
-        error: function(textStatus, errorThrown) {
+        error: $function(textStatus, errorThrown) {
           console.log("Post error: " + textStatus);
           console.log(errorThrown);
           messageEl.innerHTML = 'Payment did not go through.';
