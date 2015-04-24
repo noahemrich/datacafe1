@@ -13,18 +13,18 @@ if ($mysqli->connect_errno) {
 
 //$db_selected = mysql_select_db(DB_NAME, $mysqli);
 
-if (!$mysqli) {
-	die('Can\'t use ' . DB_NAME . ': ' . mysql_error());
-}
+//if (!$mysqli) {
+//	die('Can\'t use ' . DB_NAME . ': ' . mysql_error());
+//}
 
 $value = $_POST['email'];
 $value2 = $_POST['text'];
 
 $sql = "INSERT INTO demo (email, text) VALUES ('$value', '$value2')";
 
-if (!$mysqli->query($sql)) {
-	die('Error:' . $mysqli->connect_error)
-}
+//if (!$mysqli->query($sql)) {
+//	die('Error:' . $mysqli->connect_error)
+//}
 
-mysql_close();
+mysqli_close($sql_link);
 ?>
