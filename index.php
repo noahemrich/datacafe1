@@ -23,7 +23,7 @@
     </header>
 
     <section>
-      <form action="demo.php" method="post" id="myform" class="simform" autocomplete="off">
+      <form action="php/demo.php" method="post" id="myform" class="simform" autocomplete="off">
         <div class="simform-inner">
           <ol class="questions">
 
@@ -85,7 +85,7 @@
       //  };
 
         $.ajax({
-            url: "demo.php",
+            url: "php/demo.php",
             type: 'POST',
             data: $("#myform").serialize(),
        });
