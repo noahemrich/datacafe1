@@ -26,5 +26,5 @@ $sql = "INSERT INTO demo (email, text) VALUES ('$value', '$value2')";
 //	die('Error:' . $mysqli->connect_error)
 //}
 
-mysqli_close($sql_link);
+mysqli_close();
 ?>
