@@ -5,7 +5,7 @@ define('DB_USER', 'b1e4408afef9b2');
 define('DB_PASSWORD', '2651c64d');
 define('DB_HOST', 'us-cdbr-iron-east-02.cleardb.net:3306');
 
-$link = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);
+$link = new mysqli(DB_HOST, DB_USER, DB_PASSWORD);
 
 if (!$link) {
 	die('Could not connect: ' . mysql_error());
