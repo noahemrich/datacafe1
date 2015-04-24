@@ -11,9 +11,9 @@ if ($mysqli->connect_errno) {
     echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
 }
 
-$db_selected = mysql_select_db(DB_NAME, $mysqli);
+//$db_selected = mysql_select_db(DB_NAME, $mysqli);
 
-if (!$db_selected) {
+if (!$mysqli) {
 	die('Can\'t use ' . DB_NAME . ': ' . mysql_error());
 }
 
