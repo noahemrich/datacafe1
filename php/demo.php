@@ -5,7 +5,7 @@ define('DB_USER', 'b1e4408afef9b2');
 define('DB_PASSWORD', '2651c64d');
 define('DB_HOST', 'us-cdbr-iron-east-02.cleardb.net:3306');
 
-$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD);
+$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
 if ($mysqli->connect_errno) {
     echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
@@ -24,7 +24,7 @@ $sql = "INSERT INTO demo (email, text) VALUES ('$value', '$value2')";
 
 //if (!$mysqli->query($sql)) {
 //	die('Error:' . $mysqli->connect_error)
-//}
+// }
 
 mysqli_close($mysqli);
 ?>
