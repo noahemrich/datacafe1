@@ -4,8 +4,12 @@
   <link rel="stylesheet" type="text/css" href="css/normalize.css" />
   <link rel="stylesheet" type="text/css" href="css/demo.css" />
   <link rel="stylesheet" type="text/css" href="css/component.css" />
+  <script src="js/jquery.min.js"></script>
   <script src="js/modernizr.custom.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+  <script src="js/countable.js"></script>
+  <script src="js/classie.js"></script>
+  <script src="js/stepsForm.js"></script>
+
 
 <body>
 
@@ -19,7 +23,7 @@
     </header>
 
     <section>
-      <form action="demo.php" method="post" id="myform" class="simform" autocomplete="off">
+      <form action="php/demo.php" method="post" id="myform" class="simform" autocomplete="off">
         <div class="simform-inner">
           <ol class="questions">
 
@@ -66,53 +70,59 @@
     </section>
 
   </div><!-- /container -->
-  <script src="js/classie.js"></script>
-  <script src="js/stepsForm.js"></script>
+
   <script>
     var myform = document.getElementById( 'myform' );
+
     new stepsForm( myform, {
       onSubmit : function( form ) {
         // hide form
         classie.addClass( myform.querySelector( '.simform-inner' ), 'hide' );
+
       //  var form_data = {
       //      text: $('#text').val(),
       //      email: $('#email').val(),
       //  };
+
         $.ajax({
-            url: "demo.php",
+            url: "php/demo.php",
             type: 'POST',
             data: $("#myform").serialize(),
-            success: function () {
-              var messageEl = myform.querySelector( '.final-message' );
-              messageEl.innerHTML = 'Thanks for your payment! Go get your cookie.';
-              classie.addClass( messageEl, 'show' );
-            }
        });
+
+
         /*
         myform.submit();
+
         document.getElementById("theForm").submit();
         or
         AJAX request (maybe show loading indicator while we don't have an answer..)
         */
-        // let's just simulate something...
 
+        // let's just simulate something...
+        var messageEl = myform.querySelector( '.final-message' );
+        messageEl.innerHTML = 'Thanks for your payment! Go get your cookie.';
+        classie.addClass( messageEl, 'show' );
       }
     } );
+
+    // var area = document.getElementById('text')
+    var myTextArray;
+
+    function callback (counter) {
+      // console.log(counter)
+      var myText = $("#text").val();
+      myTextArray = myText.split(" ");
+
+      console.log(myTextArray.length);
+      document.querySelector('.results').innerHTML = myTextArray.length - 1;
+    }
+
+    Countable.live(text, callback)
+
+
   </script>
 
-  <script src="js/countable.js"></script>
-  <script>
-  // var area = document.getElementById('text')
-  var myTextArray;
-  function callback (counter) {
-    // console.log(counter)
-    var myText = $("#text").val();
-    myTextArray = myText.split(" ");
-    console.log(myTextArray.length);
-    document.querySelector('.results').innerHTML = myTextArray.length - 1;
-  }
-  Countable.live(text, callback)
-  </script>
 
 
 </body>
