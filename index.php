@@ -76,33 +76,47 @@
 
     new stepsForm( myform, {
       onSubmit : function( form ) {
+
         // hide form
-        classie.addClass( myform.querySelector( '.simform-inner' ), 'hide' );
+      classie.addClass( myform.querySelector( '.simform-inner' ), 'hide' );
 
       //  var form_data = {
       //      text: $('#text').val(),
       //      email: $('#email').val(),
       //  };
 
-        $.ajax({
-            url: "php/demo.php",
-            type: 'POST',
-            data: $("#myform").serialize(),
-       });
+      var messageEl = document.getElementsByClassName('.final-message');
+
+      $.ajax({
+        url: "demo.php",
+        type: 'POST',
+        data: $("#myform").serialize(),
+        success: function(){  
+          messageEl.innerHTML = 'Thanks for your payment! Go get your cookie.';
+          classie.addClass( messageEl, 'show' );
+          },
+        error: function(textStatus, errorThrown) {
+          console.log("Post error: " + textStatus);
+          console.log(errorThrown);
+          messageEl.innerHTML = 'Payment did not go through.';
+          classie.addClass( messageEl, 'show' )
+          }   
+      });
 
 
-        /*
+
+      /*
         myform.submit();
 
         document.getElementById("theForm").submit();
         or
         AJAX request (maybe show loading indicator while we don't have an answer..)
-        */
+
 
         // let's just simulate something...
-        var messageEl = myform.querySelector( '.final-message' );
-        messageEl.innerHTML = 'Thanks for your payment! Go get your cookie.';
-        classie.addClass( messageEl, 'show' );
+      //  var messageEl = myform.querySelector( '.final-message' );
+      //  messageEl.innerHTML = 'Thanks for your payment! Go get your cookie.';
+      //  classie.addClass( messageEl, 'show' );
       }
     } );
 
