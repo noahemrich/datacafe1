@@ -4,8 +4,12 @@
   <link rel="stylesheet" type="text/css" href="css/normalize.css" />
   <link rel="stylesheet" type="text/css" href="css/demo.css" />
   <link rel="stylesheet" type="text/css" href="css/component.css" />
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
   <script src="js/modernizr.custom.js"></script>
-  <script src="js/jquery.min.js"></script>
+  <script src="js/countable.js"></script>
+  <script src="js/classie.js"></script>
+  <script src="js/stepsForm.js"></script>
+
 
 <body>
 
@@ -66,8 +70,7 @@
     </section>
 
   </div><!-- /container -->
-  <script src="js/classie.js"></script>
-  <script src="js/stepsForm.js"></script>
+
   <script>
     var myform = document.getElementById( 'myform' );
 
@@ -85,8 +88,6 @@
             url: "demo.php",
             type: 'POST',
             data: $("#myform").serialize(),
-
-
        });
 
 
@@ -104,30 +105,24 @@
         classie.addClass( messageEl, 'show' );
       }
     } );
-  </script>
 
-  <script src="js/countable.js"></script>
-  <script>
-  // var area = document.getElementById('text')
-  var myTextArray;
+    // var area = document.getElementById('text')
+    var myTextArray;
 
-  function callback (counter) {
-    // console.log(counter)
-    var myText = $("#text").val();
-    myTextArray = myText.split(" ");
+    function callback (counter) {
+      // console.log(counter)
+      var myText = $("#text").val();
+      myTextArray = myText.split(" ");
 
-    console.log(myTextArray.length);
-    document.querySelector('.results').innerHTML = myTextArray.length - 1;
-  }
+      console.log(myTextArray.length);
+      document.querySelector('.results').innerHTML = myTextArray.length - 1;
+    }
 
-  Countable.live(text, callback)
-
-
-
-
+    Countable.live(text, callback)
 
 
   </script>
+
 
 
 </body>
