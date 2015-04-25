@@ -65,7 +65,7 @@
 
       </form><!-- /simform -->
 
-      <span class="legal">By using this website you agree to the terms of our privacy policy.</span>
+      <span class="legal">By using this website you agree to the terms of our <a href="privacy.html">privacy policy</a>.</span>
 
     </section>
 
